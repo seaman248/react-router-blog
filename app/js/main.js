@@ -6,24 +6,22 @@ var menuItems = [
 		{name: 'home', href: '/home'},
 		{name: 'blog', href: '/blog'},
 		{name: 'about', href: '/about'}
-	]
+	];
 
-var Items = React.creacteClass({
+var Items = React.createClass({displayName: "Items",
 	render: function(){
-		return (React.createElement("li", null, React.createElement("a", null, "Menu item")));
+		return (React.createElement("ul", null, React.createElement("li", null, React.createElement("a", null, "Menu item"))));
 	}
-})
+});
 
 var Menu = React.createClass({displayName: "Menu",
-    render: function () {
-        return (
-        	React.createElement("nav", null, 
-        		React.createElement("ul", null, 
-        			React.createElement(Items, {items: this.props.items})
-        		)
-        	)
-        	);
-    }
+	render: function () {
+		return (
+			React.createElement("nav", null, 
+				React.createElement(Items, {items: this.props.items})
+			)
+			);
+	}
 });
 
 var App = React.createClass({displayName: "App",
@@ -37,7 +35,7 @@ var App = React.createClass({displayName: "App",
 });
 
 React.render(React.createElement(App, null), document.body);
-}).call(this,require("+7ZJp0"),typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/fake_cc9259d8.js","/")
+}).call(this,require("+7ZJp0"),typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/fake_a179260.js","/")
 },{"+7ZJp0":5,"buffer":2,"react":151}],2:[function(require,module,exports){
 (function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 /*!
