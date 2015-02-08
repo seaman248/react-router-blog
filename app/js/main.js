@@ -1,7 +1,31 @@
 (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);throw new Error("Cannot find module '"+o+"'")}var f=n[o]={exports:{}};t[o][0].call(f.exports,function(e){var n=t[o][1][e];return s(n?n:e)},f,f.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
 (function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 var React = require('react');
-}).call(this,require("+7ZJp0"),typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/fake_86f790c0.js","/")
+
+var Menu = React.createClass({displayName: "Menu",
+    render: function () {
+        return (
+        	React.createElement("nav", null, 
+        		React.createElement("ul", null, 
+        			React.createElement("li", null, React.createElement("a", null, "Menu"))
+        		)
+        	)
+        	);
+    }
+});
+
+var App = React.createClass({displayName: "App",
+	render: function(){
+		return (
+			React.createElement("div", {className: "App"}, 
+				React.createElement(Menu, null)
+			)
+			);
+	}
+});
+
+React.render(React.createElement(App, null), document.body);
+}).call(this,require("+7ZJp0"),typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/fake_c4a981f.js","/")
 },{"+7ZJp0":5,"buffer":2,"react":151}],2:[function(require,module,exports){
 (function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 /*!
