@@ -1,7 +1,10 @@
 (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
 var React = require('react');
-var reactRouter = require('react-router');
+var Router = require('react-router');
+var Route = Router.Route;
+var RouteHandler = Router.RouteHandler;
 var Menu = require('./ui/Menu.js');
+
 var menuItems = [
 		{name: 'home', href: '/home'},
 		{name: 'blog', href: '/blog'},
@@ -12,7 +15,8 @@ var App = React.createClass({displayName: "App",
 	render: function(){
 		return (
 			React.createElement("div", {className: "App"}, 
-				React.createElement(Menu, {items: menuItems})
+				React.createElement(Menu, {items: menuItems}), 
+				React.createElement(RouteHandler, null)
 			)
 			);
 	}
@@ -21,15 +25,14 @@ var App = React.createClass({displayName: "App",
 React.render(React.createElement(App, null), document.body);
 },{"./ui/Menu.js":2,"react":197,"react-router":17}],2:[function(require,module,exports){
 var React = require('react');
-
+var Router = require('react-router');
+var Link = Router.Link;
 var Items = React.createClass({displayName: "Items",
 	render: function(){
 		var xItems = [];
 		this.props.items.forEach(function(menuItem){
 			xItems.push(
-				React.createElement("li", {key: menuItem.name}, 
-					React.createElement("a", {href: menuItem.href}, menuItem.name)
-				)
+				React.createElement("li", null, React.createElement(Link, {to: menuItem.href}, menuItem.name))
 			);
 		})
 		return (
@@ -51,7 +54,7 @@ var Menu = React.createClass({displayName: "Menu",
 });
 
 module.exports = Menu;
-},{"react":197}],3:[function(require,module,exports){
+},{"react":197,"react-router":17}],3:[function(require,module,exports){
 /*!
  * The buffer module from node.js, for the browser.
  *

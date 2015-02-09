@@ -1,13 +1,12 @@
 var React = require('react');
-
+var Router = require('react-router');
+var Link = Router.Link;
 var Items = React.createClass({displayName: "Items",
 	render: function(){
 		var xItems = [];
 		this.props.items.forEach(function(menuItem){
 			xItems.push(
-				React.createElement("li", {key: menuItem.name}, 
-					React.createElement("a", {href: menuItem.href}, menuItem.name)
-				)
+				React.createElement("li", null, React.createElement(Link, {to: menuItem.href}, menuItem.name))
 			);
 		})
 		return (

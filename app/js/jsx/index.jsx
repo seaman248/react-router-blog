@@ -1,6 +1,9 @@
 var React = require('react');
-var reactRouter = require('react-router');
+var Router = require('react-router');
+var Route = Router.Route;
+var RouteHandler = Router.RouteHandler;
 var Menu = require('./ui/Menu.js');
+
 var menuItems = [
 		{name: 'home', href: '/home'},
 		{name: 'blog', href: '/blog'},
@@ -12,6 +15,7 @@ var App = React.createClass({
 		return (
 			<div className='App'>
 				<Menu items={menuItems} />
+				<RouteHandler />
 			</div>
 			);
 	}
