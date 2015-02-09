@@ -1,9 +1,9 @@
 var gulp = require('gulp');
 var react = require('gulp-react');
-var browserify = require('gulp-browserify');
+var browserify = require('browserify');
 var connect = require('gulp-connect');
-var rename = require('gulp-rename');
 var clean = require('gulp-clean');
+var source = require('vinyl-source-stream');
 
 gulp.task('connect', function(){
 	connect.server({
@@ -15,28 +15,17 @@ gulp.task('connect', function(){
 gulp.task('react', function(){
 	gulp.src('./app/js/jsx/**/*.jsx')
 		.pipe(react())
-		.pipe(gulp.dest('./app/js/jsx/compile_jsx'));
-});
-
-gulp.task('browserify', ['react'], function(){
-	gulp.src('./app/js/js/jsx/compile_jsx/**/*.js')
-		.pipe(clean({force: true}))
-		.pipe(browserify())
-		.pipe(rename('main.js'))
-		.pipe(gulp.dest('.app/js'))
+		.pipe(gulp.dest('./app/js/jsx/compile_jsx'))
 		.pipe(connect.reload());
 });
 
-// gulp.task('react-browserify', function(){
-// 	gulp.src('./app/js/jsx/**/*.jsx')
-// 		.pipe(react())
-// 		.pipe(browserify({
-// 			insertGlobals: true
-// 		}))
-// 		.pipe(rename('main.js'))
-// 		.pipe(gulp.dest('./app/js'))
-// 		.pipe(connect.reload());
-// });
+gulp.task('browserify', ['react'], function(){
+	return browserify('./app/js/jsx/compile_jsx/index.js')
+		.bundle()
+		.pipe(source('main.js'))
+		.pipe(gulp.dest('./app/js'))
+		.pipe(connect.reload());
+});
 
 gulp.task('html', function(){
 	gulp.src('./app/*.html')
