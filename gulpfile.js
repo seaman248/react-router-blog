@@ -12,31 +12,31 @@ gulp.task('connect', function(){
 	});
 });
 
-// gulp.task('react', function(){
-// 	gulp.src('./app/js/jsx/**/*.jsx')
-// 		.pipe(react())
-// 		.pipe(gulp.dest('./app/js/js'));
-// });
-
-// gulp.task('browserify', ['react'], function(){
-// 	gulp.src('./app/js/js/**/*.js')
-// 		// .pipe(clean({force: true}))
-// 		.pipe(browserify())
-// 		.pipe(rename('main.js'))
-// 		.pipe(gulp.dest('.app/js'))
-// 		.pipe(connect.reload());
-// });
-
-gulp.task('react-browserify', function(){
+gulp.task('react', function(){
 	gulp.src('./app/js/jsx/**/*.jsx')
 		.pipe(react())
-		.pipe(browserify({
-			insertGlobals: true
-		}))
+		.pipe(gulp.dest('./app/js/jsx/compile_jsx'));
+});
+
+gulp.task('browserify', ['react'], function(){
+	gulp.src('./app/js/js/jsx/compile_jsx/**/*.js')
+		.pipe(clean({force: true}))
+		.pipe(browserify())
 		.pipe(rename('main.js'))
-		.pipe(gulp.dest('./app/js'))
+		.pipe(gulp.dest('.app/js'))
 		.pipe(connect.reload());
 });
+
+// gulp.task('react-browserify', function(){
+// 	gulp.src('./app/js/jsx/**/*.jsx')
+// 		.pipe(react())
+// 		.pipe(browserify({
+// 			insertGlobals: true
+// 		}))
+// 		.pipe(rename('main.js'))
+// 		.pipe(gulp.dest('./app/js'))
+// 		.pipe(connect.reload());
+// });
 
 gulp.task('html', function(){
 	gulp.src('./app/*.html')
@@ -44,8 +44,8 @@ gulp.task('html', function(){
 });
 
 
-gulp.task('watch', ['react-browserify'], function(){
-	gulp.watch('./app/js/jsx/**/*.jsx', ['react-browserify']);
+gulp.task('watch', ['react', 'browserify'], function(){
+	gulp.watch('./app/js/jsx/**/*.jsx', ['react', 'browserify']);
 	gulp.watch('./app/*.html', ['html']);
 });
 
