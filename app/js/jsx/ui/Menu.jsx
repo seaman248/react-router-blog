@@ -6,7 +6,7 @@ var Items = React.createClass({
 	render: function(){
 		return (
 			<ul>
-				<li><Link to="/">HOME</Link></li>
+				<li><Link to="/">home</Link></li>
 				<li><Link to="portfolio">portfolio</Link></li>
 				<li><Link to="about">about</Link></li>
 			</ul>

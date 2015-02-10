@@ -6,7 +6,7 @@ var Items = React.createClass({displayName: "Items",
 	render: function(){
 		return (
 			React.createElement("ul", null, 
-				React.createElement("li", null, React.createElement(Link, {to: "/"}, "HOME")), 
+				React.createElement("li", null, React.createElement(Link, {to: "/"}, "home")), 
 				React.createElement("li", null, React.createElement(Link, {to: "portfolio"}, "portfolio")), 
 				React.createElement("li", null, React.createElement(Link, {to: "about"}, "about"))
 			)
