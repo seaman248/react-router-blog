@@ -1,8 +1,11 @@
 var React = require('react');
+
 var Router = require('react-router');
+
+var DefaultRoute = Router.DefaultRoute;
 var Route = Router.Route;
 var RouteHandler = Router.RouteHandler;
-var DefaultRoute = Router.DefaultRoute;
+
 var Menu = require('./ui/Menu.js');
 
 var Home = React.createClass({displayName: "Home",
