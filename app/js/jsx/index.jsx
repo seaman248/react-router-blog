@@ -4,17 +4,13 @@ var Route = Router.Route;
 var RouteHandler = Router.RouteHandler;
 var Menu = require('./ui/Menu.js');
 
-var menuItems = [
-		{name: 'home', href: '/home'},
-		{name: 'blog', href: '/blog'},
-		{name: 'about', href: '/about'}
-	];
+
 
 var App = React.createClass({
 	render: function(){
 		return (
 			<div className='App'>
-				<Menu items={menuItems} />
+				<Menu />
 				<RouteHandler />
 			</div>
 			);

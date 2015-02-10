@@ -5,17 +5,13 @@ var Route = Router.Route;
 var RouteHandler = Router.RouteHandler;
 var Menu = require('./ui/Menu.js');
 
-var menuItems = [
-		{name: 'home', href: '/home'},
-		{name: 'blog', href: '/blog'},
-		{name: 'about', href: '/about'}
-	];
+
 
 var App = React.createClass({displayName: "App",
 	render: function(){
 		return (
 			React.createElement("div", {className: "App"}, 
-				React.createElement(Menu, {items: menuItems}), 
+				React.createElement(Menu, null), 
 				React.createElement(RouteHandler, null)
 			)
 			);
@@ -27,17 +23,14 @@ React.render(React.createElement(App, null), document.body);
 var React = require('react');
 var Router = require('react-router');
 var Link = Router.Link;
+
 var Items = React.createClass({displayName: "Items",
 	render: function(){
-		var xItems = [];
-		this.props.items.forEach(function(menuItem){
-			xItems.push(
-				React.createElement("li", null, React.createElement(Link, {to: menuItem.href}, menuItem.name))
-			);
-		})
 		return (
 			React.createElement("ul", null, 
-				xItems
+				React.createElement("li", null, React.createElement(Link, {to: "home"}, "HOME")), 
+				React.createElement("li", null, React.createElement(Link, {to: "portfolio"}, "portfolio")), 
+				React.createElement("li", null, React.createElement(Link, {to: "about"}, "about"))
 			)
 			);
 	}

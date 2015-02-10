@@ -1,17 +1,14 @@
 var React = require('react');
 var Router = require('react-router');
 var Link = Router.Link;
+
 var Items = React.createClass({displayName: "Items",
 	render: function(){
-		var xItems = [];
-		this.props.items.forEach(function(menuItem){
-			xItems.push(
-				React.createElement("li", null, React.createElement(Link, {to: menuItem.href}, menuItem.name))
-			);
-		})
 		return (
 			React.createElement("ul", null, 
-				xItems
+				React.createElement("li", null, React.createElement(Link, {to: "home"}, "HOME")), 
+				React.createElement("li", null, React.createElement(Link, {to: "portfolio"}, "portfolio")), 
+				React.createElement("li", null, React.createElement(Link, {to: "about"}, "about"))
 			)
 			);
 	}

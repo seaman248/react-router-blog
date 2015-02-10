@@ -1,17 +1,14 @@
 var React = require('react');
 var Router = require('react-router');
 var Link = Router.Link;
+
 var Items = React.createClass({
 	render: function(){
-		var xItems = [];
-		this.props.items.forEach(function(menuItem){
-			xItems.push(
-				<li><Link to={menuItem.href}>{menuItem.name}</Link></li>
-			);
-		})
 		return (
 			<ul>
-				{xItems}
+				<li><Link to="home">HOME</Link></li>
+				<li><Link to="portfolio">portfolio</Link></li>
+				<li><Link to="about">about</Link></li>
 			</ul>
 			);
 	}
