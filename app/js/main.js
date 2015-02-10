@@ -3,9 +3,26 @@ var React = require('react');
 var Router = require('react-router');
 var Route = Router.Route;
 var RouteHandler = Router.RouteHandler;
+var DefaultRoute = Router.DefaultRoute;
 var Menu = require('./ui/Menu.js');
 
+var Home = React.createClass({displayName: "Home",
+	render: function(){
+		return (React.createElement("p", null, "Home"));
+	}
+});
 
+var Portfolio = React.createClass({displayName: "Portfolio",
+	render: function(){
+		return (React.createElement("p", null, "Portfolio"));
+	}
+});
+
+var About = React.createClass({displayName: "About",
+	render: function(){
+		return (React.createElement("p", null, "About"));
+	}
+});
 
 var App = React.createClass({displayName: "App",
 	render: function(){
@@ -18,7 +35,17 @@ var App = React.createClass({displayName: "App",
 	}
 });
 
-React.render(React.createElement(App, null), document.body);
+var routes = (
+	React.createElement(Route, {name: "app", path: "/", handler: App}, 
+		React.createElement(Route, {name: "portfolio", handler: Portfolio}), 
+		React.createElement(Route, {name: "about", handler: About}), 
+		React.createElement(DefaultRoute, {handler: Home})
+	)
+	);
+
+Router.run(routes, function(Handler){
+	React.render(React.createElement(Handler, null), document.body);
+});
 },{"./ui/Menu.js":2,"react":197,"react-router":17}],2:[function(require,module,exports){
 var React = require('react');
 var Router = require('react-router');
