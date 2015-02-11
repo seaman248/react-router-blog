@@ -8,11 +8,7 @@ var RouteHandler = Router.RouteHandler;
 
 var Menu = require('./ui/Menu.js');
 
-var Home = React.createClass({
-	render: function(){
-		return (<p>Home</p>);
-	}
-});
+var Home = require('./pages/home.js');
 
 var Portfolio = React.createClass({
 	render: function(){
