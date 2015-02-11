@@ -34,7 +34,7 @@ gulp.task('html', function(){
 
 
 gulp.task('watch', ['react', 'browserify'], function(){
-	gulp.watch('./app/js/jsx/**/*.jsx', ['react', 'browserify']);
+	gulp.watch('./app/js/jsx/**/**/*.jsx', ['react', 'browserify']);
 	gulp.watch('./app/*.html', ['html']);
 });
 
