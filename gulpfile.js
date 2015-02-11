@@ -4,6 +4,8 @@ var browserify = require('browserify');
 var connect = require('gulp-connect');
 var clean = require('gulp-clean');
 var source = require('vinyl-source-stream');
+var uglify = require('gulp-uglify');
+var rename = require('gulp-rename');
 
 gulp.task('connect', function(){
 	connect.server({
@@ -25,6 +27,13 @@ gulp.task('browserify', ['react'], function(){
 		.pipe(source('main.js'))
 		.pipe(gulp.dest('./app/js'))
 		.pipe(connect.reload());
+});
+
+gulp.task('uglify', function(){
+	gulp.src('./app/js/main.js')
+		.pipe(uglify())
+		.pipe(rename('main.min.js'))
+		.pipe(gulp.dest('./app/js'))
 });
 
 gulp.task('html', function(){
