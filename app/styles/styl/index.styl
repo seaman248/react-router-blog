@@ -2,9 +2,12 @@
 
 meyer-reset()
 
+RED = #F46161
+BACKGROUND_BLACK = #373737
+TEXT_COLOR = #EFEFEF
 body
-	background-color #373737
-	color #EFEFEF
+	background-color BACKGROUND_BLACK
+	color TEXT_COLOR
 	font-family Helvetica
 
 nav
@@ -12,7 +15,7 @@ nav
 	height 60px
 	margin 0
 	padding 0
-	background-color #636363
+	border-bottom 1px solid RED
 	font-weight bold
 
 nav ul
@@ -26,5 +29,5 @@ nav ul li
 	a
 		font-size em(16)
 		text-decoration none
-		color #F46161
+		color RED
 		text-transform uppercase
