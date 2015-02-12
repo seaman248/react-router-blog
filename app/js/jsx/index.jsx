@@ -7,6 +7,7 @@ var Route = Router.Route;
 var RouteHandler = Router.RouteHandler;
 
 var Menu = require('./ui/Menu.js');
+var Footer = require('./ui/footer.js');
 
 var Home = require('./pages/home.js');
 
@@ -28,6 +29,7 @@ var App = React.createClass({
 			<div className='App'>
 				<Menu />
 				<RouteHandler />
+				<Footer />
 			</div>
 			);
 	}
