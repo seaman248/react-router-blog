@@ -1,23 +1,28 @@
 var React = require('react');
 
+var ThePost = React.createClass({
+	render: function(){
+		return (
+			<div className='post' key={this.props.key}>
+				<h3>{this.props.title}</h3>
+				<p>{this.props.description}</p>
+			</div>
+			);
+	}
+});
+
 var Posts = module.exports = React.createClass({
 	render: function(){
 		var eachPosts = [];
 		if(this.props.posts){
 			this.props.posts.forEach(function(post){
 				eachPosts.push(
-					<div className='post' key={post.title}>
-						<h3>{post.title}</h3>
-						<p>{post.description}</p>
-					</div>
+					<ThePost key={post.title} title={post.title} description={post.description} />
 					);
 			});
 		} else {
 			eachPosts.push(
-					<div className='post' key='testPostKey'>
-						<h3>TestPost</h3>
-						<p>Lorem ipsum</p>
-					</div>
+					<ThePost key='testPosts' title='TestPosts' description='Test post description' />
 					);
 		}
 		return (
