@@ -127,7 +127,7 @@ var Posts = module.exports = React.createClass({displayName: "exports",
 			});
 		} else {
 			eachPosts.push(
-					React.createElement(ThePost, {key: "testPosts", title: "TestPosts", description: "Test post description"})
+					React.createElement(ThePost, {key: "testPosts", title: "No posts yet", description: "There is no post yet"})
 					);
 		}
 		return (

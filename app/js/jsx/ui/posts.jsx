@@ -22,7 +22,7 @@ var Posts = module.exports = React.createClass({
 			});
 		} else {
 			eachPosts.push(
-					<ThePost key='testPosts' title='TestPosts' description='Test post description' />
+					<ThePost key='testPosts' title='No posts yet' description='There is no post yet' />
 					);
 		}
 		return (
