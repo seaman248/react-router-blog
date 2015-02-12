@@ -27,7 +27,9 @@ var Posts = module.exports = React.createClass({displayName: "exports",
 		}
 		return (
 			React.createElement("div", {className: "posts"}, 
-				eachPosts
+				React.createElement("div", {className: "container"}, 
+					eachPosts
+				)
 			)
 			);
 	}
