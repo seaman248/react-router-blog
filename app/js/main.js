@@ -53,7 +53,10 @@ var Posts = require('../ui/posts.js');
 var Home = React.createClass({displayName: "Home",
 	render: function(){
 		return (
-			React.createElement(Slider, null)
+			React.createElement("div", {className: "homePage"}, 
+				React.createElement(Slider, null), 
+				React.createElement(Posts, null)
+			)
 			);
 	}
 });
@@ -90,17 +93,29 @@ module.exports = Menu;
 },{"react":200,"react-router":20}],4:[function(require,module,exports){
 var React = require('react');
 
-var Posts = React.createClass({displayName: "Posts",
+var Posts = module.exports = React.createClass({displayName: "exports",
 	render: function(){
-		var posts = [];
-		this.props.posts.forEach(function(post){
-			posts.push(
-				React.createElement("div", {className: "post"}, post.title)
-				);
-		});
+		var eachPosts = [];
+		if(this.props.posts){
+			this.props.posts.forEach(function(post){
+				eachPosts.push(
+					React.createElement("div", {className: "post", key: post.title}, 
+						React.createElement("h3", null, post.title), 
+						React.createElement("p", null, post.description)
+					)
+					);
+			});
+		} else {
+			eachPosts.push(
+					React.createElement("div", {className: "post", key: "testPostKey"}, 
+						React.createElement("h3", null, "TestPost"), 
+						React.createElement("p", null, "Lorem ipsum")
+					)
+					);
+		}
 		return (
 			React.createElement("div", {className: "posts"}, 
-				posts
+				eachPosts
 			)
 			);
 	}

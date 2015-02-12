@@ -5,8 +5,10 @@ var Posts = require('../ui/posts.js');
 var Home = React.createClass({
 	render: function(){
 		return (
-			<Slider />
-			<Posts />
+			<div className='homePage'>
+				<Slider />
+				<Posts />
+			</div>
 			);
 	}
 });
