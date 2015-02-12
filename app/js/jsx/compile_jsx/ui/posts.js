@@ -4,7 +4,7 @@ var ThePost = React.createClass({displayName: "ThePost",
 	render: function(){
 		return (
 			React.createElement("div", {className: "post", key: this.props.key}, 
-				React.createElement("h3", null, this.props.title), 
+				React.createElement("h3", null, React.createElement("a", {href: this.props.link}, this.props.title)), 
 				React.createElement("p", null, this.props.description)
 			)
 			);

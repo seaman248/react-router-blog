@@ -4,7 +4,7 @@ var ThePost = React.createClass({
 	render: function(){
 		return (
 			<div className='post' key={this.props.key}>
-				<h3>{this.props.title}</h3>
+				<h3><a href={this.props.link}>{this.props.title}</a></h3>
 				<p>{this.props.description}</p>
 			</div>
 			);
