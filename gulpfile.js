@@ -15,6 +15,7 @@ var rename = require('gulp-rename');
 var concat = require('gulp-concat-css');
 var stylus = require('gulp-stylus');
 var minify = require('gulp-minify-css');
+var kouto = require('kouto-swiss');
 
 gulp.task('connect', function(){
 	connect.server({
@@ -52,7 +53,9 @@ gulp.task('html', function(){
 
 gulp.task('style', function(){
 	gulp.src('./app/styles/styl/**/*.styl')
-		.pipe(stylus())
+		.pipe(stylus({
+			use: [kouto()]
+		}))
 		.pipe(concat('main.css'))
 		.pipe(minify())
 		.pipe(gulp.dest('./app/styles'))
