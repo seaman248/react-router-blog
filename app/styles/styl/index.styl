@@ -1,9 +1,24 @@
 @import "kouto-swiss"
 
+
+
+
+
 // COLORS
 RED = #F46161
 BACKGROUND_BLACK = #373737
 TEXT_COLOR = #EFEFEF
+
+
+
+
+
+// GLOBAL MIXINS
+CONTAINER(totalCols, cols)
+	gs('fluid', totalCols)
+	.container
+		col(cols)
+		offset((totalCols - cols) / 2)
 
 
 
@@ -44,20 +59,19 @@ nav ul li
 		color RED
 		text-transform uppercase
 
+.active
+	border-top 3px sold RED
+
 
 
 
 
 // JUMBOTRON
 .Jumbotron
-	gs('fluid', 12)
+	CONTAINER(12, 9)
 	width 100%
 	border-bottom 1px solid RED
 	padding em(50) 0
-
-	.container
-		col(9)
-		offset(1.5)
 
 	h1
 		font-size em(55)
@@ -77,3 +91,12 @@ nav ul li
 		color TEXT_COLOR
 		font-size em(17)
 		cursor pointer
+
+
+
+
+
+// POSTS
+.posts
+	CONTAINER(12, 9)
+	
