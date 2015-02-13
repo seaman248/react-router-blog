@@ -7,7 +7,6 @@ var Route = Router.Route;
 var RouteHandler = Router.RouteHandler;
 
 var Menu = require('./ui/Menu.js');
-var Footer = require('./ui/footer.js');
 
 var Home = require('./pages/home.js');
 
@@ -28,8 +27,7 @@ var App = React.createClass({displayName: "App",
 		return (
 			React.createElement("div", {className: "App"}, 
 				React.createElement(Menu, null), 
-				React.createElement(RouteHandler, null), 
-				React.createElement(Footer, null)
+				React.createElement(RouteHandler, null)
 			)
 			);
 	}
