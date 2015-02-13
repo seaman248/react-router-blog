@@ -98,7 +98,8 @@ var ThePost = React.createClass({displayName: "ThePost",
 		return (
 			React.createElement("div", {className: "post", key: this.props.key}, 
 				React.createElement("h3", null, React.createElement("a", {href: this.props.link}, this.props.title)), 
-				React.createElement("p", null, this.props.description)
+				React.createElement("p", null, this.props.description), 
+				React.createElement("span", null, this.props.date)
 			)
 			);
 	}
@@ -110,12 +111,20 @@ var Posts = module.exports = React.createClass({displayName: "exports",
 		if(this.props.posts){
 			this.props.posts.forEach(function(post){
 				eachPosts.push(
-					React.createElement(ThePost, {key: post.title, title: post.title, description: post.description})
+					React.createElement(ThePost, {
+						key: post.title, 
+						title: post.title, 
+						description: post.description, 
+						date: post.date})
 					);
 			});
 		} else {
 			eachPosts.push(
-					React.createElement(ThePost, {key: "testPosts", title: "No posts yet", description: "There is no post yet"})
+					React.createElement(ThePost, {
+						key: "testPosts", 
+						title: "No posts yet", 
+						description: "There is no post yet", 
+						date: "Два дня назад"})
 					);
 		}
 		return (

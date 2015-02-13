@@ -6,6 +6,7 @@ var ThePost = React.createClass({
 			<div className='post' key={this.props.key}>
 				<h3><a href={this.props.link}>{this.props.title}</a></h3>
 				<p>{this.props.description}</p>
+				<span>{this.props.date}</span>
 			</div>
 			);
 	}
@@ -17,12 +18,20 @@ var Posts = module.exports = React.createClass({
 		if(this.props.posts){
 			this.props.posts.forEach(function(post){
 				eachPosts.push(
-					<ThePost key={post.title} title={post.title} description={post.description} />
+					<ThePost 
+						key={post.title} 
+						title={post.title} 
+						description={post.description} 
+						date={post.date}/>
 					);
 			});
 		} else {
 			eachPosts.push(
-					<ThePost key='testPosts' title='No posts yet' description='There is no post yet' />
+					<ThePost 
+						key='testPosts' 
+						title='No posts yet' 
+						description='There is no post yet'
+						date='Два дня назад' />
 					);
 		}
 		return (
