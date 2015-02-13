@@ -140,22 +140,8 @@ var Posts = module.exports = React.createClass({displayName: "exports",
 	}
 });
 },{"react":201}],6:[function(require,module,exports){
-var React = require('react');
 
-module.exports = React.createClass({displayName: "exports",
-	render: function(){
-		return (
-			React.createElement("div", {className: "Jumbotron"}, 
-				React.createElement("div", {className: "container"}, 
-					React.createElement("h1", null, "Jumbotron header"), 
-					React.createElement("p", null, "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Non laboriosam debitis eius sed laudantium, alias excepturi perferendis dolorem ducimus quia."), 
-					React.createElement("button", null, "Some link")
-				)
-			)
-			);
-	}
-});
-},{"react":201}],7:[function(require,module,exports){
+},{}],7:[function(require,module,exports){
 /*!
  * The buffer module from node.js, for the browser.
  *
