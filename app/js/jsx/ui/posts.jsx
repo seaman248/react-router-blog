@@ -30,7 +30,7 @@ var Posts = module.exports = React.createClass({
 					<ThePost 
 						key='testPosts' 
 						title='No posts yet' 
-						description='There is no post yet'
+						description='There is no post yet, but this test preview about this fact'
 						date='Два дня назад' />
 					);
 		}
