@@ -1,4 +1,5 @@
 var gulp = require('gulp');
+var gutil = require('gulp-util');
 
 // reload
 var connect = require('gulp-connect');
@@ -10,6 +11,7 @@ var clean = require('gulp-clean');
 var source = require('vinyl-source-stream');
 var uglify = require('gulp-uglify');
 var rename = require('gulp-rename');
+var clean = require('gulp-clean');
 
 // Style
 var concat = require('gulp-concat-css');
@@ -28,6 +30,11 @@ gulp.task('react', function(){
 	gulp.src('./app/js/jsx/**/*.jsx')
 		.pipe(react())
 		.pipe(gulp.dest('./app/js/jsx/compile_jsx'));
+});
+
+gulp.task('clean', function(){
+	gulp.src('./app/js/jsx/compile_jsx')
+		.pipe(clean({read: false}));
 });
 
 gulp.task('browserify', ['react'], function(){
