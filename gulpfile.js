@@ -27,8 +27,7 @@ gulp.task('connect', function(){
 gulp.task('react', function(){
 	gulp.src('./app/js/jsx/**/*.jsx')
 		.pipe(react())
-		.pipe(gulp.dest('./app/js/jsx/compile_jsx'))
-		.pipe(connect.reload());
+		.pipe(gulp.dest('./app/js/jsx/compile_jsx'));
 });
 
 gulp.task('browserify', ['react'], function(){
