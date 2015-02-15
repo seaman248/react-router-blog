@@ -3,6 +3,7 @@ var gutil = require('gulp-util');
 
 // reload
 var connect = require('gulp-connect');
+var opn = require('opn');
 
 // js
 var react = require('gulp-react');
@@ -69,7 +70,11 @@ gulp.task('style', function(){
 		.pipe(connect.reload());
 });
 
-gulp.task('watch', ['react', 'browserify', 'style'], function(){
+gulp.task('open', function(){
+	opn('http://localhost:3000', 'google-chrome');
+});
+
+gulp.task('watch', ['react', 'browserify', 'style', 'open'], function(){
 	gulp.watch('./app/js/jsx/**/**/*.jsx', ['react', 'browserify']);
 	gulp.watch('./app/*.html', ['html']);
 	gulp.watch('./app/styles/styl/**/*.styl', ['style']);
