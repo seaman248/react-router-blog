@@ -68,7 +68,7 @@ var React = require('react');
 var PortfolioItems = React.createClass({displayName: "PortfolioItems",
 	render: function(){
 		var PItems = [];
-		if(this.props.posts){
+		if(this.props.items){
 			this.props.items.forEach(function(portfolioItem){
 				PItems.push(
 					React.createElement("div", {className: "portfolioItem"}, 
@@ -88,7 +88,12 @@ var PortfolioItems = React.createClass({displayName: "PortfolioItems",
 })
 
 var testItems = [
-	{title: 'Work1', description: 'Lorem ipsum dolor sit.', date: '12.03.2014'}
+	{title: 'Work1', description: 'Lorem ipsum dolor sit.', date: 'Два дня назад'},
+	{title: 'Work1', description: 'Lorem ipsum dolor sit.', date: 'Два дня назад'},
+	{title: 'Work1', description: 'Lorem ipsum dolor sit.', date: 'Два дня назад'},
+	{title: 'Work1', description: 'Lorem ipsum dolor sit.', date: 'Два дня назад'},
+	{title: 'Work1', description: 'Lorem ipsum dolor sit.', date: 'Два дня назад'},
+	{title: 'Work1', description: 'Lorem ipsum dolor sit.', date: 'Два дня назад'},
 ];
 
 var Portfolio = module.exports = React.createClass({displayName: "exports",
