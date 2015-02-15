@@ -22,6 +22,7 @@ var kouto = require('kouto-swiss');
 gulp.task('connect', function(){
 	connect.server({
 		root: 'app',
+		port: 3000,
 		livereload: true
 	});
 });
