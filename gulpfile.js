@@ -71,7 +71,7 @@ gulp.task('style', function(){
 });
 
 gulp.task('open', function(){
-	opn('http://localhost:3000', 'google-chrome');
+	opn('http://localhost:3000', 'chromium-browser');
 });
 
 gulp.task('watch', ['react', 'browserify', 'style', 'open'], function(){
