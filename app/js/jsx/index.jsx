@@ -10,12 +10,7 @@ var RouteHandler = Router.RouteHandler;
 var Menu = require('./ui/Menu.js');
 
 var Home = require('./pages/home.js');
-
-var Portfolio = React.createClass({
-	render: function(){
-		return (<p>Portfolio</p>);
-	}
-});
+var Portfolio = require('./pages/portfolio.js');
 
 var About = React.createClass({
 	render: function(){
