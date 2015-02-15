@@ -65,9 +65,39 @@ module.exports = Home;
 },{"../ui/posts.js":5,"../ui/slider.js":6,"react":198}],3:[function(require,module,exports){
 var React = require('react');
 
+var PortfolioItems = React.createClass({displayName: "PortfolioItems",
+	render: function(){
+		var PItems = [];
+		if(this.props.posts){
+			this.props.items.forEach(function(portfolioItem){
+				PItems.push(
+					React.createElement("div", {className: "portfolioItem"}, 
+						React.createElement("h3", null, " ", portfolioItem.title, " "), 
+						React.createElement("p", null, " ", portfolioItem.description, " "), 
+						React.createElement("span", null, " ", portfolioItem.date, " ")
+					)
+					)
+			});
+		}
+		return (
+			React.createElement("div", {className: "portfolioItems"}, 
+				PItems
+			)
+			)
+	}
+})
+
+var testItems = [
+	{title: 'Work1', description: 'Lorem ipsum dolor sit.', date: '12.03.2014'}
+];
+
 var Portfolio = module.exports = React.createClass({displayName: "exports",
 	render: function(){
-		return (React.createElement("p", null, "Portfolio"));
+		return (
+			React.createElement("div", {className: "portfolioPage"}, 
+				React.createElement(PortfolioItems, {items: testItems})
+			)
+			);
 	}
 });
 },{"react":198}],4:[function(require,module,exports){
