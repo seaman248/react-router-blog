@@ -35,7 +35,9 @@ var Portfolio = module.exports = React.createClass({
 	render: function(){
 		return (
 			<div className='portfolioPage'>
-				<PortfolioItems items={testItems} />
+				<div className='container'>
+					<PortfolioItems items={testItems} />
+				</div>
 			</div>
 			);
 	}
