@@ -115,3 +115,20 @@ nav ul li
 	span
 		font-size em(12)
 		font-weight bold
+
+
+// PAGE TRANSITION
+
+.page-enter
+	opacity 0.01
+	transition opacity .5s ease-in
+
+.page-enter.page-enter-active
+	opacity 1
+
+.page-leave
+	opacity 1
+	transition opacity .5s ease-in
+
+.page-leave.page-leave-active
+	opacity 0.01

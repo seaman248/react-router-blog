@@ -25,12 +25,14 @@ var About = React.createClass({displayName: "About",
 });
 
 var App = React.createClass({displayName: "App",
+	mixins: [ Router.State ],
 	render: function(){
+		var pageName = this.getRoutes().reverse()[0].name;
 		return (
 			React.createElement("div", {className: "App"}, 
 				React.createElement(Menu, null), 
 				React.createElement(TransitionGroup, {component: "div", transitionName: "page"}, 
-					React.createElement(RouteHandler, null)
+					React.createElement(RouteHandler, {key: pageName})
 				)
 			)
 			);
