@@ -7,11 +7,11 @@ var DefaultRoute = Router.DefaultRoute;
 var Route = Router.Route;
 var RouteHandler = Router.RouteHandler;
 
-var Menu = require('./ui/Menu.js');
+var Menu = require('./ui/Menu.jsx');
 
-var Home = require('./pages/home.js');
-var Portfolio = require('./pages/portfolio.js');
-var About = require('./pages/about.js');
+var Home = require('./pages/home.jsx');
+var Portfolio = require('./pages/portfolio.jsx');
+var About = require('./pages/about.jsx');
 
 var App = React.createClass({
 	mixins: [ Router.State ],

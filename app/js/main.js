@@ -8,11 +8,11 @@ var DefaultRoute = Router.DefaultRoute;
 var Route = Router.Route;
 var RouteHandler = Router.RouteHandler;
 
-var Menu = require('./ui/Menu.js');
+var Menu = require('./ui/Menu.jsx');
 
-var Home = require('./pages/home.js');
-var Portfolio = require('./pages/portfolio.js');
-var About = require('./pages/about.js');
+var Home = require('./pages/home.jsx');
+var Portfolio = require('./pages/portfolio.jsx');
+var About = require('./pages/about.jsx');
 
 var App = React.createClass({displayName: "App",
 	mixins: [ Router.State ],
@@ -40,7 +40,8 @@ var routes = (
 Router.run(routes, function(Handler){
 	React.render(React.createElement(Handler, null), document.body);
 });
-},{"./pages/about.js":2,"./pages/home.js":3,"./pages/portfolio.js":4,"./ui/Menu.js":5,"react":199,"react-router":32,"react/lib/ReactCSSTransitionGroup":77}],2:[function(require,module,exports){
+
+},{"./pages/about.jsx":2,"./pages/home.jsx":3,"./pages/portfolio.jsx":4,"./ui/Menu.jsx":5,"react":199,"react-router":32,"react/lib/ReactCSSTransitionGroup":77}],2:[function(require,module,exports){
 var React = require('react');
 
 var About = module.exports = React.createClass({displayName: "exports",
@@ -54,11 +55,12 @@ var About = module.exports = React.createClass({displayName: "exports",
 			);
 	}
 });
+
 },{"react":199}],3:[function(require,module,exports){
 var React = require('react');
 
-var Slider = require('../ui/slider.js');
-var Posts = require('../ui/posts.js');
+var Slider = require('../ui/slider.jsx');
+var Posts = require('../ui/posts.jsx');
 var Home = React.createClass({displayName: "Home",
 	render: function(){
 		return (
@@ -71,7 +73,8 @@ var Home = React.createClass({displayName: "Home",
 });
 
 module.exports = Home;
-},{"../ui/posts.js":6,"../ui/slider.js":7,"react":199}],4:[function(require,module,exports){
+
+},{"../ui/posts.jsx":6,"../ui/slider.jsx":7,"react":199}],4:[function(require,module,exports){
 var React = require('react');
 
 var PortfolioItems = React.createClass({displayName: "PortfolioItems",
@@ -116,6 +119,7 @@ var Portfolio = module.exports = React.createClass({displayName: "exports",
 			);
 	}
 });
+
 },{"react":199}],5:[function(require,module,exports){
 var React = require('react');
 var Router = require('react-router');
@@ -144,6 +148,7 @@ var Menu = React.createClass({displayName: "Menu",
 });
 
 module.exports = Menu;
+
 },{"react":199,"react-router":32}],6:[function(require,module,exports){
 var React = require('react');
 
@@ -190,6 +195,7 @@ var Posts = module.exports = React.createClass({displayName: "exports",
 			);
 	}
 });
+
 },{"react":199}],7:[function(require,module,exports){
 var React = require('react');
 
@@ -206,6 +212,7 @@ module.exports = React.createClass({displayName: "exports",
 			);
 	}
 });
+
 },{"react":199}],8:[function(require,module,exports){
 // shim for using process in browser
 
