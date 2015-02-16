@@ -38,10 +38,14 @@ gulp.task('browserify', function(){
 	var b = browserify();
 	b.transform(reactify);
 	b.add('./app/js/jsx/index.jsx');
-		b.bundle()
+		var bStream = b.bundle()
 		.pipe(source('main.js'))
 		.pipe(gulp.dest('./app/js'))
 		.pipe(connect.reload());
+	bStream.on('error', function(e){
+		gutil.log(e);
+		bStream.end();
+	});
 });
 
 gulp.task('uglify', function(){
