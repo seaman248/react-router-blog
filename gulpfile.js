@@ -13,6 +13,7 @@ var source = require('vinyl-source-stream');
 var uglify = require('gulp-uglify');
 var rename = require('gulp-rename');
 var clean = require('gulp-clean');
+var reactify = require('reactify');
 
 // Style
 var concat = require('gulp-concat-css');
@@ -28,20 +29,16 @@ gulp.task('connect', function(){
 	});
 });
 
-gulp.task('react', function(){
-	gulp.src('./app/js/jsx/**/*.jsx')
-		.pipe(react())
-		.pipe(gulp.dest('./app/js/jsx/compile_jsx'));
-});
-
 gulp.task('clean', function(){
 	gulp.src('./app/js/jsx/compile_jsx')
 		.pipe(clean({read: false}));
 });
 
-gulp.task('browserify', ['react'], function(){
-	return browserify('./app/js/jsx/compile_jsx/index.js')
-		.bundle()
+gulp.task('browserify', function(){
+	var b = browserify();
+	b.transform(reactify);
+	b.add('./app/js/jsx/index.jsx');
+		b.bundle()
 		.pipe(source('main.js'))
 		.pipe(gulp.dest('./app/js'))
 		.pipe(connect.reload());
@@ -74,8 +71,8 @@ gulp.task('open', function(){
 	opn('http://localhost:3000', 'chromium-browser');
 });
 
-gulp.task('watch', ['react', 'browserify', 'style', 'open'], function(){
-	gulp.watch('./app/js/jsx/**/**/*.jsx', ['react', 'browserify']);
+gulp.task('watch', ['browserify', 'style', 'open'], function(){
+	gulp.watch('./app/js/jsx/**/**/*.jsx', ['browserify']);
 	gulp.watch('./app/*.html', ['html']);
 	gulp.watch('./app/styles/styl/**/*.styl', ['style']);
 });
