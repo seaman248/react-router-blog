@@ -177,7 +177,7 @@ var Router = require('react-router');
 var ThePostHeader = module.exports = React.createClass({displayName: "exports",
 	mixins: [Router.State],
 	render: function(){
-		var id = this.getParams().id;
+		var id = this.getParams();
 		return(
 			React.createElement("div", {className: "thePostHeader"}, 
 				React.createElement("p", null, "The post Number ", id)
