@@ -12,6 +12,7 @@ var Menu = require('./ui/Menu.jsx');
 var Home = require('./pages/home.jsx');
 var Portfolio = require('./pages/portfolio.jsx');
 var About = require('./pages/about.jsx');
+var ThePost = require('./pages/thePost.jsx');
 
 var App = React.createClass({
 	mixins: [ Router.State ],
@@ -32,6 +33,7 @@ var routes = (
 	<Route name='app' path='/' handler={App}>
 		<Route name='portfolio' handler={Portfolio} />
 		<Route name='about' handler={About} />
+		<Route name='post' path='/post/:id/' handler={ThePost} />
 		<DefaultRoute handler={Home} />
 	</Route>
 	);
