@@ -1,10 +1,11 @@
 var React = require('react');
-
+var Router = require('react-router');
+var Link = Router.Link;
 var ThePost = React.createClass({
 	render: function(){
 		return (
 			<div className='post' key={this.props.key}>
-				<h3><a href={this.props.link}>{this.props.title}</a></h3>
+			<h3><Link to={this.props.link}>{this.props.title}</Link></h3>
 				<p>{this.props.description}</p>
 				<span>{this.props.date}</span>
 			</div>

@@ -188,12 +188,13 @@ var ThePostHeader = module.exports = React.createClass({displayName: "exports",
 
 },{"react":201,"react-router":34}],8:[function(require,module,exports){
 var React = require('react');
-
+var Router = require('react-router');
+var Link = Router.Link;
 var ThePost = React.createClass({displayName: "ThePost",
 	render: function(){
 		return (
 			React.createElement("div", {className: "post", key: this.props.key}, 
-				React.createElement("h3", null, React.createElement("a", {href: this.props.link}, this.props.title)), 
+			React.createElement("h3", null, React.createElement(Link, {to: this.props.link}, this.props.title)), 
 				React.createElement("p", null, this.props.description), 
 				React.createElement("span", null, this.props.date)
 			)
@@ -233,7 +234,7 @@ var Posts = module.exports = React.createClass({displayName: "exports",
 	}
 });
 
-},{"react":201}],9:[function(require,module,exports){
+},{"react":201,"react-router":34}],9:[function(require,module,exports){
 var React = require('react');
 
 module.exports = React.createClass({displayName: "exports",
