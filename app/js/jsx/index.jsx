@@ -11,12 +11,7 @@ var Menu = require('./ui/Menu.js');
 
 var Home = require('./pages/home.js');
 var Portfolio = require('./pages/portfolio.js');
-
-var About = React.createClass({
-	render: function(){
-		return (<p>About</p>);
-	}
-});
+var About = require('./pages/about.js');
 
 var App = React.createClass({
 	mixins: [ Router.State ],
