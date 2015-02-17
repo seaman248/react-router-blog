@@ -5,7 +5,7 @@ var ThePost = React.createClass({
 	render: function(){
 		return (
 			<div className='post' key={this.props.key}>
-			<h3><Link to={this.props.link}>{this.props.title}</Link></h3>
+			<h3><Link to={this.props.link} params={{id: this.props.id}} >{this.props.title}</Link></h3>
 				<p>{this.props.description}</p>
 				<span>{this.props.date}</span>
 			</div>
@@ -29,8 +29,9 @@ var Posts = module.exports = React.createClass({
 		} else {
 			eachPosts.push(
 					<ThePost 
-						key='testPosts' 
-						link='/post/test'
+						key='testPosts'
+						link='post'
+						id='test'
 						title='No posts yet' 
 						description='There is no post yet, but this test preview about this fact'
 						date='Два дня назад' />

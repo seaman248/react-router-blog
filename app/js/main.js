@@ -194,7 +194,7 @@ var ThePost = React.createClass({displayName: "ThePost",
 	render: function(){
 		return (
 			React.createElement("div", {className: "post", key: this.props.key}, 
-			React.createElement("h3", null, React.createElement(Link, {to: this.props.link}, this.props.title)), 
+			React.createElement("h3", null, React.createElement(Link, {to: this.props.link, params: {id: this.props.id}}, this.props.title)), 
 				React.createElement("p", null, this.props.description), 
 				React.createElement("span", null, this.props.date)
 			)
@@ -219,7 +219,8 @@ var Posts = module.exports = React.createClass({displayName: "exports",
 			eachPosts.push(
 					React.createElement(ThePost, {
 						key: "testPosts", 
-						link: "/post/test", 
+						link: "post", 
+						id: "test", 
 						title: "No posts yet", 
 						description: "There is no post yet, but this test preview about this fact", 
 						date: "Два дня назад"})
