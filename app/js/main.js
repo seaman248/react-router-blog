@@ -219,6 +219,7 @@ var Posts = module.exports = React.createClass({displayName: "exports",
 			eachPosts.push(
 					React.createElement(ThePost, {
 						key: "testPosts", 
+						link: "/post/test", 
 						title: "No posts yet", 
 						description: "There is no post yet, but this test preview about this fact", 
 						date: "Два дня назад"})
