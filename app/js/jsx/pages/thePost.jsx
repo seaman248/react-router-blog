@@ -1,6 +1,7 @@
 var React = require('react');
 
 var PostHeader = require('../ui/postHeader.jsx');
+var PostBody = require('../ui/postBody.jsx');
 
 var ThePost = module.exports = React.createClass({
 	render: function(){
@@ -8,8 +9,7 @@ var ThePost = module.exports = React.createClass({
 			<div className='thePostPage'>
 				<div className='container'>
 					<PostHeader />
-					<div className='thepost'>
-					</div>
+					<PostBody />
 				</div>
 			</div>
 			);
