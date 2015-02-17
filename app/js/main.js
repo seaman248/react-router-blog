@@ -173,6 +173,7 @@ module.exports = Menu;
 },{"react":201,"react-router":34}],7:[function(require,module,exports){
 var React = require('react');
 var Router = require('react-router');
+var Link = Router.Link;
 
 var ThePostHeader = module.exports = React.createClass({displayName: "exports",
 	mixins: [Router.State],
@@ -180,6 +181,7 @@ var ThePostHeader = module.exports = React.createClass({displayName: "exports",
 		var id = this.getParams();
 		return(
 			React.createElement("div", {className: "thePostHeader"}, 
+				React.createElement(Link, {to: "/"}, " Назад "), 
 				React.createElement("p", null, "The post Number ", id)
 			)
 			);
