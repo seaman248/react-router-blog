@@ -181,8 +181,9 @@ var ThePostHeader = module.exports = React.createClass({displayName: "exports",
 		var id = this.getParams();
 		return(
 			React.createElement("div", {className: "thePostHeader"}, 
-				React.createElement(Link, {to: "/"}, " Назад "), 
-				React.createElement("p", null, "The post Number ", id)
+				React.createElement("div", {className: "toBackButton"}, 
+					React.createElement(Link, {to: "/"}, " Назад ")
+				)
 			)
 			);
 	}

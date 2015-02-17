@@ -8,8 +8,9 @@ var ThePostHeader = module.exports = React.createClass({
 		var id = this.getParams();
 		return(
 			<div className='thePostHeader'>
-				<Link to='/'> Назад </Link>
-				<p>The post Number {id}</p>
+				<div className='toBackButton'>
+					<Link to='/'> Назад </Link>
+				</div>
 			</div>
 			);
 	}
