@@ -40,7 +40,6 @@ gulp.task('browserify', function(){
 	b.add('./app/js/jsx/index.jsx');
 	b.on('error', function(e){
 		gutil.log(e);
-		bStream.end();
 	});
 	b.bundle()
 	.pipe(source('main.js'))
