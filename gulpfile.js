@@ -7,7 +7,7 @@ var opn = require('opn');
 var reloadPort = 3000;
 
 // HTML
-var pathHtml = './client/index.html';
+var pathHtml = './public';
 var pathJade = './views/index.jade';
 var jade = require('gulp-jade');
 
@@ -51,7 +51,7 @@ var kouto = require('kouto-swiss');
 
 gulp.task('connect', function(){
 	connect.server({
-		root: 'client',
+		root: 'public',
 		port: reloadPort,
 		livereload: true
 	});
