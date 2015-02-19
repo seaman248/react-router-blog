@@ -6,6 +6,7 @@ var connect = require('gulp-connect');
 var opn = require('opn');
 
 // js
+
 var react = require('gulp-react');
 var browserify = require('browserify');
 var clean = require('gulp-clean');
@@ -27,11 +28,6 @@ gulp.task('connect', function(){
 		port: 3000,
 		livereload: true
 	});
-});
-
-gulp.task('clean', function(){
-	gulp.src('./app/js/jsx/compile_jsx')
-		.pipe(clean({read: false}));
 });
 
 gulp.task('browserify', function(){
