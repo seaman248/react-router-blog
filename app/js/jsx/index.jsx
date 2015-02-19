@@ -1,5 +1,5 @@
 var React = require('react');
-var TransitionGroup = require('react/lib/ReactCSSTransitionGroup');
+// var TransitionGroup = require('react/lib/ReactCSSTransitionGroup');
 
 var Router = require('react-router');
 
@@ -21,9 +21,7 @@ var App = React.createClass({
 		return (
 			<div className='App'>
 				<Menu />
-				<TransitionGroup component='div' transitionName='page'>
-					<RouteHandler key={pageName} />
-				</TransitionGroup>
+				<RouteHandler key={pageName} />
 			</div>
 			);
 	}
