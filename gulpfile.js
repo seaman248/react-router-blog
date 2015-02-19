@@ -5,6 +5,7 @@ var gutil = require('gulp-util');
 var connect = require('gulp-connect');
 var opn = require('opn');
 var reloadPort = 3000;
+var pathHtml = './app/*.html';
 
 // js
 var pathJS = {
@@ -73,7 +74,7 @@ gulp.task('uglify', function(){
 });
 
 gulp.task('html', function(){
-	gulp.src('./app/*.html')
+	gulp.src(pathHtml)
 		.pipe(connect.reload());
 });
 
@@ -94,7 +95,7 @@ gulp.task('open', function(){
 
 gulp.task('watch', ['browserify', 'style', 'open'], function(){
 	gulp.watch(pathJS.src.watch, ['browserify']);
-	gulp.watch('./app/*.html', ['html']);
+	gulp.watch(pathHtml, ['html']);
 	gulp.watch(pathStyles.src.watch, ['style']);
 });
 
