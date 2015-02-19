@@ -4,6 +4,7 @@ var gutil = require('gulp-util');
 // reload
 var connect = require('gulp-connect');
 var opn = require('opn');
+var reloadPort = 3000;
 
 // js
 var pathJS = {
@@ -35,7 +36,7 @@ var kouto = require('kouto-swiss');
 gulp.task('connect', function(){
 	connect.server({
 		root: 'app',
-		port: 3000,
+		port: reloadPort,
 		livereload: true
 	});
 });
@@ -77,7 +78,7 @@ gulp.task('style', function(){
 });
 
 gulp.task('open', function(){
-	opn('http://localhost:3000', 'chromium-browser');
+	opn('http://localhost:'+reloadPort, 'chromium-browser');
 });
 
 gulp.task('watch', ['browserify', 'style', 'open'], function(){
