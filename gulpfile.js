@@ -5,18 +5,22 @@ var gutil = require('gulp-util');
 var connect = require('gulp-connect');
 var opn = require('opn');
 var reloadPort = 3000;
-var pathHtml = './app/*.html';
+
+// HTML
+var pathHtml = './client/index.html';
+var pathJade = './views/index.jade';
+var jade = require('gulp-jade');
 
 // js
 var pathJS = {
 	src: {
-		root: './app/js/jsx/index.jsx',
-		watch: './app/js/jsx/**/**/*.jsx'
+		root: './client/js/jsx/index.jsx',
+		watch: './client/js/jsx/**/**/*.jsx'
 	},
 	dest:{
 		name: 'main.js',
 		minName: 'main.min.js',
-		path: './app/js'
+		path: './public'
 	}
 }
 var react = require('gulp-react');
@@ -31,12 +35,12 @@ var reactify = require('reactify');
 // Style
 var pathStyles = {
 	src: {
-		path: './app/styles/styl/**/*.styl',
-		watch: './app/styles/styl/**/*.styl'
+		path: './client/styles/styl/**/*.styl',
+		watch: './client/styles/styl/**/*.styl'
 	},
 	dest: {
 		name: 'main.css',
-		path: './app/styles'
+		path: './public'
 
 	}
 }
@@ -47,7 +51,7 @@ var kouto = require('kouto-swiss');
 
 gulp.task('connect', function(){
 	connect.server({
-		root: 'app',
+		root: 'client',
 		port: reloadPort,
 		livereload: true
 	});
@@ -74,7 +78,9 @@ gulp.task('uglify', function(){
 });
 
 gulp.task('html', function(){
-	gulp.src(pathHtml)
+	gulp.src(pathJade)
+		.pipe(jade())
+		.pipe(gulp.dest(pathHtml))
 		.pipe(connect.reload());
 });
 
@@ -95,7 +101,7 @@ gulp.task('open', function(){
 
 gulp.task('watch', ['browserify', 'style', 'open'], function(){
 	gulp.watch(pathJS.src.watch, ['browserify']);
-	gulp.watch(pathHtml, ['html']);
+	gulp.watch(pathJade, ['html']);
 	gulp.watch(pathStyles.src.watch, ['style']);
 });
 
