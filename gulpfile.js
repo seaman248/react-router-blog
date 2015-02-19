@@ -6,7 +6,17 @@ var connect = require('gulp-connect');
 var opn = require('opn');
 
 // js
-
+var pathJS = {
+	src: {
+		root: './app/js/jsx/index.jsx',
+		watch: './app/js/jsx/**/**/*.jsx'
+	},
+	dest:{
+		name: 'main.js',
+		minName: 'main.min.js',
+		path: './app/js'
+	}
+}
 var react = require('gulp-react');
 var browserify = require('browserify');
 var clean = require('gulp-clean');
@@ -33,21 +43,21 @@ gulp.task('connect', function(){
 gulp.task('browserify', function(){
 	var b = browserify();
 	b.transform(reactify);
-	b.add('./app/js/jsx/index.jsx');
+	b.add(pathJS.src.root);
 	b.on('error', function(e){
 		gutil.log(e);
 	});
 	b.bundle()
-	.pipe(source('main.js'))
-	.pipe(gulp.dest('./app/js'))
+	.pipe(source(pathJS.dest.name))
+	.pipe(gulp.dest(pathJS.dest.path))
 	.pipe(connect.reload());
 });
 
 gulp.task('uglify', function(){
-	gulp.src('./app/js/main.js')
+	gulp.src(pathJS.dest.path+'/'+pathJS.dest.name)
 		.pipe(uglify())
-		.pipe(rename('main.min.js'))
-		.pipe(gulp.dest('./app/js'))
+		.pipe(rename(pathJS.dest.minName))
+		.pipe(gulp.dest(pathJS.dest.path))
 });
 
 gulp.task('html', function(){
@@ -71,7 +81,7 @@ gulp.task('open', function(){
 });
 
 gulp.task('watch', ['browserify', 'style', 'open'], function(){
-	gulp.watch('./app/js/jsx/**/**/*.jsx', ['browserify']);
+	gulp.watch(pathJS.src.watch, ['browserify']);
 	gulp.watch('./app/*.html', ['html']);
 	gulp.watch('./app/styles/styl/**/*.styl', ['style']);
 });
