@@ -28,6 +28,17 @@ var clean = require('gulp-clean');
 var reactify = require('reactify');
 
 // Style
+var pathStyles = {
+	src: {
+		path: './app/styles/styl/**/*.styl',
+		watch: './app/styles/styl/**/*.styl'
+	},
+	dest: {
+		name: 'main.css',
+		path: './app/styles'
+
+	}
+}
 var concat = require('gulp-concat-css');
 var stylus = require('gulp-stylus');
 var minify = require('gulp-minify-css');
@@ -67,13 +78,13 @@ gulp.task('html', function(){
 });
 
 gulp.task('style', function(){
-	gulp.src('./app/styles/styl/**/*.styl')
+	gulp.src(pathStyles.src.path)
 		.pipe(stylus({
 			use: [kouto()]
 		}))
-		.pipe(concat('main.css'))
+		.pipe(concat(pathStyles.dest.name))
 		.pipe(minify())
-		.pipe(gulp.dest('./app/styles'))
+		.pipe(gulp.dest(pathStyles.dest.path))
 		.pipe(connect.reload());
 });
 
@@ -84,7 +95,7 @@ gulp.task('open', function(){
 gulp.task('watch', ['browserify', 'style', 'open'], function(){
 	gulp.watch(pathJS.src.watch, ['browserify']);
 	gulp.watch('./app/*.html', ['html']);
-	gulp.watch('./app/styles/styl/**/*.styl', ['style']);
+	gulp.watch(pathStyles.src.watch, ['style']);
 });
 
 gulp.task('default', ['connect', 'watch']);
