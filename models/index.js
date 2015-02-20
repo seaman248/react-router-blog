@@ -1,5 +1,6 @@
 var mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/reactBlog');
+var conf = require('../conf');
+mongoose.connect(conf.get('db_connect'));
 
 var postSchema = new mongoose.Schema({
 	pathId: String,
