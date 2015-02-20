@@ -12,12 +12,11 @@ var Home = React.createClass({
 		};
 	},
 	componentDidMount: function(){
-		var that = this;
 		req.get('/posts')
 			.end(function(res){
-				that.setState({
+				this.setState({
 					posts: res
-				});
+				}).bind(this);
 				console.log(res);
 			});
 	},
