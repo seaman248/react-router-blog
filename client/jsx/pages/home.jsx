@@ -18,6 +18,7 @@ var Home = React.createClass({
 				that.setState({
 					posts: res
 				});
+				console.log(res);
 			});
 	},
 	render: function(){

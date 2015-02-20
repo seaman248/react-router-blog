@@ -77,6 +77,7 @@ var Home = React.createClass({displayName: "Home",
 				that.setState({
 					posts: res
 				});
+				console.log(res);
 			});
 	},
 	render: function(){
@@ -241,18 +242,19 @@ var ThePost = React.createClass({displayName: "ThePost",
 
 var Posts = module.exports = React.createClass({displayName: "exports",
 	render: function(){
-		var eachPosts = [];
-		this.props.posts.forEach(function(post){
-			eachPosts.push(
-				React.createElement(ThePost, {
-					key: post.id, 
-					link: post.link, 
-					id: post.id, 
-					title: post.title, 
-					description: post.description, 
-					date: post.date})
-				);
-		});
+		// var propsPosts = this.props.posts;
+		var propsPosts = this.props.posts;
+		var eachPosts = propsPosts.map(function(post){
+				return eachPosts.push(
+					React.createElement(ThePost, {
+						key: post.id, 
+						link: post.link, 
+						id: post.id, 
+						title: post.title, 
+						description: post.description, 
+						date: post.date})
+					);
+			});
 		return (
 			React.createElement("div", {className: "posts"}, 
 				React.createElement("div", {className: "container"}, 
