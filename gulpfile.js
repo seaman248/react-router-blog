@@ -14,8 +14,8 @@ var jade = require('gulp-jade');
 // js
 var pathJS = {
 	src: {
-		root: './client/js/jsx/index.jsx',
-		watch: './client/js/jsx/**/**/*.jsx'
+		root: './client/jsx/index.jsx',
+		watch: './client/jsx/**/**/*.jsx'
 	},
 	dest:{
 		name: 'main.js',
@@ -35,8 +35,8 @@ var reactify = require('reactify');
 // Style
 var pathStyles = {
 	src: {
-		path: './client/styles/styl/**/*.styl',
-		watch: './client/styles/styl/**/*.styl'
+		path: './client/styl/**/*.styl',
+		watch: './client/styl/**/*.styl'
 	},
 	dest: {
 		name: 'main.css',
