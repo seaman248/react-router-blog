@@ -8,7 +8,7 @@ var Posts = require('../ui/posts.jsx');
 var Home = React.createClass({
 	getInitialState: function(){
 		return {
-			posts: [{some: 'some'}],
+			posts: [],
 		};
 	},
 	componentDidMount: function(){

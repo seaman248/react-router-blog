@@ -67,7 +67,7 @@ var Posts = require('../ui/posts.jsx');
 var Home = React.createClass({displayName: "Home",
 	getInitialState: function(){
 		return {
-			posts: [{some: 'some'}],
+			posts: [],
 		};
 	},
 	componentDidMount: function(){
@@ -244,12 +244,12 @@ var Posts = module.exports = React.createClass({displayName: "exports",
 		// var propsPosts = this.props.posts;
 		var propsPosts = this.props.posts;
 		var eachPosts = propsPosts.map(function(post){
-				React.createElement(ThePost, {
-						key: post.id, 
-						link: post.link, 
-						id: post.id, 
+				return React.createElement(ThePost, {
+						key: post.pathId, 
+						link: "post", 
+						id: post.pathId, 
 						title: post.title, 
-						description: post.description, 
+						description: post.body, 
 						date: post.date})
 			});
 		return (

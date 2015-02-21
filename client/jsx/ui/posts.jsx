@@ -23,12 +23,12 @@ var Posts = module.exports = React.createClass({
 		// var propsPosts = this.props.posts;
 		var propsPosts = this.props.posts;
 		var eachPosts = propsPosts.map(function(post){
-				<ThePost 
-						key={post.id} 
-						link={post.link}
-						id={post.id}
+				return <ThePost 
+						key={post.pathId} 
+						link='post'
+						id={post.pathId}
 						title={post.title} 
-						description={post.description} 
+						description={post.body} 
 						date={post.date}/>
 			});
 		return (
