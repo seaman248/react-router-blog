@@ -8,16 +8,16 @@ var Posts = require('../ui/posts.jsx');
 var Home = React.createClass({
 	getInitialState: function(){
 		return {
-			posts: [],
+			posts: [{some: 'some'}],
 		};
 	},
 	componentDidMount: function(){
+		var that = this;
 		req.get('/posts')
 			.end(function(res){
-				this.setState({
-					posts: res
-				}).bind(this);
-				console.log(res);
+				that.setState({
+					posts: JSON.parse(res.text)
+				});
 			});
 	},
 	render: function(){
