@@ -139,6 +139,7 @@ var Portfolio = module.exports = React.createClass({displayName: "exports",
 
 },{"react":195}],5:[function(require,module,exports){
 var React = require('react');
+var req = require('superagent');
 
 var PostHeader = require('../ui/postHeader.jsx');
 var PostBody = require('../ui/postBody.jsx');
@@ -156,7 +157,7 @@ var ThePost = module.exports = React.createClass({displayName: "exports",
 	}
 });
 
-},{"../ui/postBody.jsx":7,"../ui/postHeader.jsx":8,"react":195}],6:[function(require,module,exports){
+},{"../ui/postBody.jsx":7,"../ui/postHeader.jsx":8,"react":195,"superagent":196}],6:[function(require,module,exports){
 var React = require('react');
 var Router = require('react-router');
 var Link = Router.Link;

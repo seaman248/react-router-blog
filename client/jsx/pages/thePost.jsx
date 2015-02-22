@@ -1,4 +1,5 @@
 var React = require('react');
+var req = require('superagent');
 
 var PostHeader = require('../ui/postHeader.jsx');
 var PostBody = require('../ui/postBody.jsx');
