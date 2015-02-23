@@ -11,6 +11,7 @@ var ThePost = module.exports = React.createClass({
 		};
 	},
 	render: function(){
+		
 		return (
 			<div className='thePostPage'>
 				<div className='container'>
