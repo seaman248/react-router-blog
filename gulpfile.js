@@ -105,4 +105,9 @@ gulp.task('watch', ['browserify', 'style', 'open'], function(){
 	gulp.watch(pathStyles.src.watch, ['style']);
 });
 
+gulp.task('wbs', ['browserify', 'style'], function(){
+	gulp.watch(pathJS.src.watch, ['browserify']);
+	gulp.watch(pathStyles.src.watch, ['style']);
+})
+
 gulp.task('default', ['connect', 'watch']);
