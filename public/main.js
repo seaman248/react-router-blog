@@ -145,6 +145,11 @@ var PostHeader = require('../ui/postHeader.jsx');
 var PostBody = require('../ui/postBody.jsx');
 
 var ThePost = module.exports = React.createClass({displayName: "exports",
+	getInitialState: function(){
+		return {
+			postId: ''
+		};
+	},
 	render: function(){
 		return (
 			React.createElement("div", {className: "thePostPage"}, 
