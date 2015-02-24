@@ -139,7 +139,6 @@ var Portfolio = module.exports = React.createClass({displayName: "exports",
 
 },{"react":195}],5:[function(require,module,exports){
 var React = require('react');
-var req = require('superagent');
 
 var PostHeader = require('../ui/postHeader.jsx');
 var PostBody = require('../ui/postBody.jsx');
@@ -151,19 +150,19 @@ var ThePost = module.exports = React.createClass({displayName: "exports",
 		};
 	},
 	render: function(){
-		
+
 		return (
 			React.createElement("div", {className: "thePostPage"}, 
 				React.createElement("div", {className: "container"}, 
 					React.createElement(PostHeader, null), 
-					React.createElement(PostBody, null)
+					React.createElement(PostBody, {postId: this.state.postId})
 				)
 			)
 			);
 	}
 });
 
-},{"../ui/postBody.jsx":7,"../ui/postHeader.jsx":8,"react":195,"superagent":196}],6:[function(require,module,exports){
+},{"../ui/postBody.jsx":7,"../ui/postHeader.jsx":8,"react":195}],6:[function(require,module,exports){
 var React = require('react');
 var Router = require('react-router');
 var Link = Router.Link;
@@ -194,19 +193,27 @@ module.exports = Menu;
 
 },{"react":195,"react-router":35}],7:[function(require,module,exports){
 var React = require('react');
+var req = require('superagent');
+
+var getPostById = function(id, cb){
+	req.get('/post/'+id)
+		.end(function(res){
+			cb(res.text);
+		});
+};
 
 var PostBody = module.exports = React.createClass({displayName: "exports",
 	render: function(){
 		return (
 			React.createElement("div", {className: "postBody"}, 
-				React.createElement("h1", null, "Page title Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maxime, ipsum."), 
+				React.createElement("h1", null, "this.props.postId"), 
 				React.createElement("p", null, "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Similique praesentium dolores unde temporibus nam, suscipit odio optio possimus. Vel dolore, mollitia cupiditate laborum ut totam expedita accusamus deleniti praesentium impedit.")
 			)
 		);
 	}
 })
 
-},{"react":195}],8:[function(require,module,exports){
+},{"react":195,"superagent":196}],8:[function(require,module,exports){
 var React = require('react');
 var Router = require('react-router');
 var Link = Router.Link;
