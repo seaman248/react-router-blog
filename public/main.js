@@ -139,6 +139,7 @@ var Portfolio = module.exports = React.createClass({displayName: "exports",
 
 },{"react":195}],5:[function(require,module,exports){
 var React = require('react');
+var req = require('superagent');
 
 var PostHeader = require('../ui/postHeader.jsx');
 var PostBody = require('../ui/postBody.jsx');
@@ -146,23 +147,25 @@ var PostBody = require('../ui/postBody.jsx');
 var ThePost = module.exports = React.createClass({displayName: "exports",
 	getInitialState: function(){
 		return {
-			postId: ''
+			post: {}
 		};
 	},
+	componentDidMount: function(){
+		
+	},
 	render: function(){
-
 		return (
 			React.createElement("div", {className: "thePostPage"}, 
 				React.createElement("div", {className: "container"}, 
 					React.createElement(PostHeader, null), 
-					React.createElement(PostBody, {postId: this.state.postId})
+					React.createElement(PostBody, {postId: this.state.post})
 				)
 			)
 			);
 	}
 });
 
-},{"../ui/postBody.jsx":7,"../ui/postHeader.jsx":8,"react":195}],6:[function(require,module,exports){
+},{"../ui/postBody.jsx":7,"../ui/postHeader.jsx":8,"react":195,"superagent":196}],6:[function(require,module,exports){
 var React = require('react');
 var Router = require('react-router');
 var Link = Router.Link;
@@ -193,7 +196,6 @@ module.exports = Menu;
 
 },{"react":195,"react-router":35}],7:[function(require,module,exports){
 var React = require('react');
-var req = require('superagent');
 
 var PostBody = module.exports = React.createClass({displayName: "exports",
 	render: function(){
@@ -206,7 +208,7 @@ var PostBody = module.exports = React.createClass({displayName: "exports",
 	}
 })
 
-},{"react":195,"superagent":196}],8:[function(require,module,exports){
+},{"react":195}],8:[function(require,module,exports){
 var React = require('react');
 var Router = require('react-router');
 var Link = Router.Link;
