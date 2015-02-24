@@ -2,6 +2,7 @@ var React = require('react');
 
 var PostBody = module.exports = React.createClass({
 	render: function(){
+		console.log(this.props.title);
 		return (
 			<div className='postBody'>
 				<h1>{this.props.title}</h1>
