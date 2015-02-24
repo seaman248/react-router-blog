@@ -195,19 +195,12 @@ module.exports = Menu;
 var React = require('react');
 var req = require('superagent');
 
-var getPostById = function(id, cb){
-	req.get('/post/'+id)
-		.end(function(res){
-			cb(res.text);
-		});
-};
-
 var PostBody = module.exports = React.createClass({displayName: "exports",
 	render: function(){
 		return (
 			React.createElement("div", {className: "postBody"}, 
-				React.createElement("h1", null, "this.props.postId"), 
-				React.createElement("p", null, "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Similique praesentium dolores unde temporibus nam, suscipit odio optio possimus. Vel dolore, mollitia cupiditate laborum ut totam expedita accusamus deleniti praesentium impedit.")
+				React.createElement("h1", null, this.props.title), 
+				React.createElement("p", null, this.props.body)
 			)
 		);
 	}
