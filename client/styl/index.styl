@@ -126,22 +126,6 @@ nav ul li
 		font-weight bold
 
 
-
-
-
-
-// PAGE TRANSITION
-.page-enter
-
-.page-enter.page-enter-active
-
-.page-leave
-
-.page-leave.page-leave-active
-
-
-
-
 // PORTFOLIO
 .portfolioPage
 	CONTAINER(12,9)
@@ -190,18 +174,19 @@ nav ul li
 	.thePostHeader
 		border-bottom 1px solid RED
 
-	.toBackButton
-		border-left 1px solid RED
-		border-right 1px solid RED
-		padding em(10) em(20)
-		a
-			display block
-			color TEXT_COLOR
-			text-decoration none
-			font-size em(17)
-			font-weight bold
-	.toBackButton:hover
-		background-color RED
+		.toBackButton
+			border-left 1px solid RED
+			border-right 1px solid RED
+			
+			a
+				padding em(10) em(20)
+				display block
+				color TEXT_COLOR
+				text-decoration none
+				font-size em(17)
+				font-weight bold
+		.toBackButton:hover
+			background-color RED
 
 	// Body
 	.postBody
@@ -210,7 +195,7 @@ nav ul li
 		border-right 1px solid RED
 		border-bottom 1px solid RED
 		h1
-			font-size em(55)
+			font-size em(45)
 			font-weight bold
 			line-height 1
 			margin em(10) auto
