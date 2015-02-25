@@ -146,28 +146,12 @@ var PostHeader = require('../ui/postHeader.jsx');
 var PostBody = require('../ui/postBody.jsx');
 
 var ThePost = module.exports = React.createClass({displayName: "exports",
-	mixins: [ Router.State ],
-	getInitialState: function(){
-		return {
-			post: {}
-		};
-	},
-	componentDidMount: function(){
-		var that = this;
-		req.get('post/'+ this.getParams().id)
-			.end(function(res){
-				that.setState(JSON.parse(res.text));
-			});
-	},
 	render: function(){
-		console.log(this.state.post);
 		return (
 			React.createElement("div", {className: "thePostPage"}, 
 				React.createElement("div", {className: "container"}, 
 					React.createElement(PostHeader, null), 
-					React.createElement(PostBody, {
-						title: this.state.post.title, 
-						body: this.state.post.body})
+					React.createElement(PostBody, null)
 				)
 			)
 			);
@@ -206,19 +190,34 @@ module.exports = Menu;
 },{"react":195,"react-router":35}],7:[function(require,module,exports){
 var React = require('react');
 
+var req = require('superagent');
+var Router = require('react-router');
+
 var PostBody = module.exports = React.createClass({displayName: "exports",
+	mixins: [ Router.State ],
+	getInitialState: function(){
+		return {
+			post: {}
+		};
+	},
+	componentDidMount: function(){
+		var that = this;
+		req.get('post/'+ this.getParams().id)
+			.end(function(res){
+				that.setState({post: JSON.parse(res.text)});
+			});
+	},
 	render: function(){
-		console.log(this.props.title);
 		return (
 			React.createElement("div", {className: "postBody"}, 
-				React.createElement("h1", null, this.props.title), 
-				React.createElement("p", null, this.props.body)
+				React.createElement("h1", null, this.state.post.title), 
+				React.createElement("p", null, this.state.post.body)
 			)
 		);
 	}
 })
 
-},{"react":195}],8:[function(require,module,exports){
+},{"react":195,"react-router":35,"superagent":196}],8:[function(require,module,exports){
 var React = require('react');
 var Router = require('react-router');
 var Link = Router.Link;
